@@ -37,7 +37,7 @@ jobs:
     - name: Install Surge
       run: npm install --global surge
     - name: Deploy Surge
-      run: surge./bulid qurat2.surge.sh ${{secrets.SURGE_TOKEN}}
+      run: surge ./ quratmumtaz2.surge.sh --token ${{secrets.SURGE_TOKEN}}
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
