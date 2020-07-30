@@ -1,29 +1,61 @@
-import React from 'react';
+import React, { Component,} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Person from './Person/Person';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <br/>
-          Update by Qurat Ul Ain Mumtaz
-         
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  state = {
+    Person:[
+     
+
+    ],
+    otherstate: 'some other value',
+    showPerson:false
+  }
+
+  
+   //this is for switch handler for name change 
+  
+  //Name change in the input 
+  
+  //Toggle the whole Div
+  togglePersonHandler =() =>{
+    const doesShow = this.state.showPerson;
+    this.setState({showPerson: !doesShow})
+
+
+  }
+  render(){
+    let Persons = null;
+
+    if(this.state.showPerson){
+      Persons = (
+        <div>
+        <Person  />
+        <person2 />
+        
+         </div> 
+      );
+
+    }
+    const mystyle = {
+      color: "white",
+      backgroundColor: "DodgerBlue",
+      padding: "10px",
+      fontFamily: "Arial"
+    };
+    return(
+      <div className = 'App'>
+        <h1> Hi, /I am Qurat Ul Ain Mumtaz </h1>
+        <p style={{mystyle}} > I am new Interner in Nesl IT</p>
+         <button onClick={this.togglePersonHandler} >Please Click on Button For Eid Wish</button>
+          { Persons }
+        
+           
+       
+      </div>
+    )
+ }
 }
 
 export default App;
